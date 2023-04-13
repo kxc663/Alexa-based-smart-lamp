@@ -1,0 +1,135 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my lamp",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "lamp_control",
+                    "slots": [
+                        {
+                            "name": "status",
+                            "type": "STATUS"
+                        }
+                    ],
+                    "samples": [
+                        "turn light {status}",
+                        "turn {status} light",
+                        "turn {status} lamp",
+                        "turn lamp {status}"
+                    ]
+                },
+                {
+                    "name": "brightness_control",
+                    "slots": [
+                        {
+                            "name": "brightness_op",
+                            "type": "BRIGHTNESS"
+                        }
+                    ],
+                    "samples": [
+                        "{brightness_op} brightness"
+                    ]
+                },
+                {
+                    "name": "get_status",
+                    "slots": [
+                        {
+                            "name": "get_status_op",
+                            "type": "STATE"
+                        }
+                    ],
+                    "samples": [
+                        "tell the {get_status_op}",
+                        "give the {get_status_op}",
+                        "show the {get_status_op}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "STATUS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "off",
+                                "synonyms": [
+                                    "Off",
+                                    "low"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "on",
+                                "synonyms": [
+                                    "High",
+                                    "On"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "BRIGHTNESS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "increase",
+                                "synonyms": [
+                                    "Increase",
+                                    "INCREASE",
+                                    "more"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "decrease",
+                                "synonyms": [
+                                    "Decrease",
+                                    "DECREASE",
+                                    "less"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "STATE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "state",
+                                "synonyms": [
+                                    "State",
+                                    "status",
+                                    "Status"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
