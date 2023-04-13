@@ -1,0 +1,15 @@
+#!/bin/bash
+
+adduser --system --home /opt/lampi lampi
+usermod -a -G audio,video,plugdev,games,users,input,netdev,spi,i2c,gpio lampi
+
+HOME=/opt/lampi python3 -c "from kivy.app import App;App().load_config()"
+mv /opt/lampi/kivy-config.ini /opt/lampi/.kivy/config.ini
+chown -R lampi:daemon /opt/lampi
+
+supervisorctl reread
+supervisorctl update
+supervisorctl start lamp_service
+supervisorctl start bluetooth_service
+supervisorctl start lamp_ui
+

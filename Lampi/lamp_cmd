@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+import json
+import sys
+import argparse
+import colorsys
+from time import sleep
+import paho.mqtt.publish as mqtt_publish
+from paho.mqtt.client import Client
+from lamp_common import *
+
+MQTT_CLIENT_ID = 'lamp_cmd'
+
+
+class LampiCmd(object):
+
+    def __init__(self):
+        self.received_lamp_state = None
+        self.client = Client(client_id=MQTT_CLIENT_ID)
+        self.client.enable_logger()
+        self.client.on_connect = self.on_connect
+        self.client.connect(MQTT_BROKER_HOST,
+                            port=MQTT_BROKER_PORT,
+                            keepalive=MQTT_BROKER_KEEP_ALIVE_SECS)
+        self._wait_for_lamp_state()
+        self.client.loop_start()
+
+    def build_argument_parser(self):
+        help_text = 'Percentage between 0.0 and 1.0'
+        error_text = '%s must be between 0.0 and 1.0'
+
+        def float_range(value):
+            value = float(value)
+            if 0.0 > value < 1.0:
+                raise argparse.ArgumentTypeError(error_text)
+            return value
+
+        parser = argparse.ArgumentParser()
+
+        color = parser.add_argument_group('Color', 'HSB')
+        range_args = [('--hue', '-u'),
+                      ('--saturation', '-s'),
+                      ('--brightness', '-b')]
+        for long_arg, short_arg in range_args:
+            color.add_argument(long_arg, short_arg,
+                               default=None, type=float_range, help=help_text)
+
+        onoff_group = parser.add_mutually_exclusive_group()
+        onoff_group.add_argument('--on', action='store_true', default=None)
+        onoff_group.add_argument('--off', action='store_true', default=None)
+        return parser
+
+    def _receive_lamp_state(self, client, userdata, message):
+        self.received_lamp_state = json.loads(message.payload.decode('utf-8'))
+
+    def _print_lamp_state(self):
+        print("Hue: {} Saturation: {} Brightness: {} On: {}".format(
+            self.received_lamp_state['color']['h'],
+            self.received_lamp_state['color']['s'],
+            self.received_lamp_state['brightness'],
+            self.received_lamp_state['on']))
+
+    def on_connect(self, client, userdata, flags, rc):
+        client.message_callback_add(TOPIC_LAMP_CHANGE_NOTIFICATION,
+                                    self._receive_lamp_state)
+        client.subscribe(TOPIC_LAMP_CHANGE_NOTIFICATION, qos=1)
+
+    def update_lamp_state(self):
+        args = self.build_argument_parser().parse_args()
+
+        if args.hue is not None or args.saturation is not None:
+            if args.hue is not None:
+                self.received_lamp_state['color']['h'] = args.hue
+            if args.saturation is not None:
+                self.received_lamp_state['color']['s'] = args.saturation
+        if args.brightness is not None:
+            self.received_lamp_state['brightness'] = args.brightness
+        if args.on is not None:
+            self.received_lamp_state['on'] = True
+        if args.off is not None:
+            self.received_lamp_state['on'] = False
+
+        self.received_lamp_state['client'] = MQTT_CLIENT_ID
+
+        self.client.publish(TOPIC_SET_LAMP_CONFIG,
+                            json.dumps(self.received_lamp_state
+                                       ).encode('utf-8'),
+                                        qos=1)
+        # delay for a bit to allow message to be published then
+        #  shutdown MQTT thread
+        sleep(0.1)
+        self.client.loop_stop()
+
+    def _wait_for_lamp_state(self):
+        for _ in range(10):
+            if self.received_lamp_state:
+                return
+            self.client.loop(timeout=0.05)
+        raise Exception("Timeout waiting for lamp state")
+
+
+def main():
+
+    lampi_cmd = LampiCmd()
+
+    if len(sys.argv) > 1:
+        lampi_cmd.update_lamp_state()
+    else:
+        lampi_cmd._print_lamp_state()
+
+if __name__ == '__main__':
+    main()

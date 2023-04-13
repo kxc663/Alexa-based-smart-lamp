@@ -1,0 +1,13 @@
+{% extends "lampi/base.html" %}
+
+{% block title %}Add LAMPI{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add LAMPI" />
+</form>
+{% endblock %}
+
+{% block page_event %}Add LAMPI{% endblock %}

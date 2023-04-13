@@ -1,0 +1,20 @@
+{% extends "lampi/base.html" %}
+
+{% block content %}
+
+{% if lampi_list %}
+    <ul>
+    {% for device in lampi_list %}
+       <li><a href="{% url 'lampi:detail' device.device_id %}">
+        {{ device.name }} {{device.device_id }}</a></li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'lampi:add' %}">Add a LAMPI Device</a>
+{% else %}
+    <p>No devices are available.</p>
+    <a href="{% url 'lampi:add' %}">Add a LAMPI Device</a>
+{% endif %}
+
+{% endblock %}
+
+{% block page_event %}LAMPI List{% endblock %}

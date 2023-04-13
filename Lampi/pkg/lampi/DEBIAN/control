@@ -1,0 +1,8 @@
+Package: lampi
+Architecture: all
+Maintainer: Nick Barendt
+Depends: python, python-dev, supervisor
+Priority: optional
+Version: 0.31
+Description: LAMPI touchscreen UI, BTLE, and hardware service
+Section: misc

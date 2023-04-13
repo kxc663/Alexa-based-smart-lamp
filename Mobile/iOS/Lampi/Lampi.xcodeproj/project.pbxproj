@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8516E57B256447D300E819F6 /* LampiBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516E57A256447D300E819F6 /* LampiBrowserView.swift */; };
+		8516E57F2564514D00E819F6 /* LampiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516E57E2564514D00E819F6 /* LampiManager.swift */; };
+		854D43B9255B2CD600565A15 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D43B8255B2CD600565A15 /* GradientSlider.swift */; };
+		8560562B25B22AAC006C0968 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 8560562A25B22AAC006C0968 /* Mixpanel */; };
+		858B9BD52549D7A400A43AC3 /* LampiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B9BD42549D7A400A43AC3 /* LampiApp.swift */; };
+		858B9BD72549D7A400A43AC3 /* LampiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B9BD62549D7A400A43AC3 /* LampiView.swift */; };
+		858B9BD92549D7A700A43AC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 858B9BD82549D7A700A43AC3 /* Assets.xcassets */; };
+		858B9BDC2549D7A700A43AC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 858B9BDB2549D7A700A43AC3 /* Preview Assets.xcassets */; };
+		858B9BE52549E2A000A43AC3 /* Lampi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B9BE42549E2A000A43AC3 /* Lampi.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8516E57A256447D300E819F6 /* LampiBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampiBrowserView.swift; sourceTree = "<group>"; };
+		8516E57E2564514D00E819F6 /* LampiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampiManager.swift; sourceTree = "<group>"; };
+		854D43B8255B2CD600565A15 /* GradientSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
+		858B9BD12549D7A400A43AC3 /* Lampi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lampi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		858B9BD42549D7A400A43AC3 /* LampiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampiApp.swift; sourceTree = "<group>"; };
+		858B9BD62549D7A400A43AC3 /* LampiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampiView.swift; sourceTree = "<group>"; };
+		858B9BD82549D7A700A43AC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		858B9BDB2549D7A700A43AC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		858B9BDD2549D7A700A43AC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858B9BE42549E2A000A43AC3 /* Lampi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lampi.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		858B9BCE2549D7A400A43AC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8560562B25B22AAC006C0968 /* Mixpanel in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8516E5782564479B00E819F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				858B9BD62549D7A400A43AC3 /* LampiView.swift */,
+				8516E57A256447D300E819F6 /* LampiBrowserView.swift */,
+				854D43B8255B2CD600565A15 /* GradientSlider.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		858B9BC82549D7A400A43AC3 = {
+			isa = PBXGroup;
+			children = (
+				858B9BD32549D7A400A43AC3 /* Lampi */,
+				858B9BD22549D7A400A43AC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		858B9BD22549D7A400A43AC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				858B9BD12549D7A400A43AC3 /* Lampi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		858B9BD32549D7A400A43AC3 /* Lampi */ = {
+			isa = PBXGroup;
+			children = (
+				858B9BD42549D7A400A43AC3 /* LampiApp.swift */,
+				8516E5782564479B00E819F6 /* Views */,
+				858B9BE42549E2A000A43AC3 /* Lampi.swift */,
+				8516E57E2564514D00E819F6 /* LampiManager.swift */,
+				858B9BD82549D7A700A43AC3 /* Assets.xcassets */,
+				858B9BDD2549D7A700A43AC3 /* Info.plist */,
+				858B9BDA2549D7A700A43AC3 /* Preview Content */,
+			);
+			path = Lampi;
+			sourceTree = "<group>";
+		};
+		858B9BDA2549D7A700A43AC3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				858B9BDB2549D7A700A43AC3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		858B9BD02549D7A400A43AC3 /* Lampi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 858B9BE02549D7A700A43AC3 /* Build configuration list for PBXNativeTarget "Lampi" */;
+			buildPhases = (
+				858B9BCD2549D7A400A43AC3 /* Sources */,
+				858B9BCE2549D7A400A43AC3 /* Frameworks */,
+				858B9BCF2549D7A400A43AC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lampi;
+			packageProductDependencies = (
+				8560562A25B22AAC006C0968 /* Mixpanel */,
+			);
+			productName = Lampi;
+			productReference = 858B9BD12549D7A400A43AC3 /* Lampi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		858B9BC92549D7A400A43AC3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					858B9BD02549D7A400A43AC3 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+				};
+			};
+			buildConfigurationList = 858B9BCC2549D7A400A43AC3 /* Build configuration list for PBXProject "Lampi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 858B9BC82549D7A400A43AC3;
+			packageReferences = (
+				8560562925B22AAC006C0968 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
+			);
+			productRefGroup = 858B9BD22549D7A400A43AC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				858B9BD02549D7A400A43AC3 /* Lampi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		858B9BCF2549D7A400A43AC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				858B9BDC2549D7A700A43AC3 /* Preview Assets.xcassets in Resources */,
+				858B9BD92549D7A700A43AC3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		858B9BCD2549D7A400A43AC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				854D43B9255B2CD600565A15 /* GradientSlider.swift in Sources */,
+				858B9BD72549D7A400A43AC3 /* LampiView.swift in Sources */,
+				858B9BE52549E2A000A43AC3 /* Lampi.swift in Sources */,
+				8516E57F2564514D00E819F6 /* LampiManager.swift in Sources */,
+				858B9BD52549D7A400A43AC3 /* LampiApp.swift in Sources */,
+				8516E57B256447D300E819F6 /* LampiBrowserView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		858B9BDE2549D7A700A43AC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		858B9BDF2549D7A700A43AC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		858B9BE12549D7A700A43AC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Lampi/Preview Content\"";
+				DEVELOPMENT_TEAM = 2585DTY45W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Lampi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.case.cxn201.Lampi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		858B9BE22549D7A700A43AC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Lampi/Preview Content\"";
+				DEVELOPMENT_TEAM = 2585DTY45W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Lampi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.case.cxn201.Lampi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		858B9BCC2549D7A400A43AC3 /* Build configuration list for PBXProject "Lampi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				858B9BDE2549D7A700A43AC3 /* Debug */,
+				858B9BDF2549D7A700A43AC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		858B9BE02549D7A700A43AC3 /* Build configuration list for PBXNativeTarget "Lampi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				858B9BE12549D7A700A43AC3 /* Debug */,
+				858B9BE22549D7A700A43AC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8560562925B22AAC006C0968 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8560562A25B22AAC006C0968 /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8560562925B22AAC006C0968 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 858B9BC92549D7A400A43AC3 /* Project object */;
+}

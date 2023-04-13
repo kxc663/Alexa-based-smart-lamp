@@ -1,0 +1,5 @@
+#!/bin/bash
+
+supervisorctl stop lamp_ui || true
+supervisorctl stop bluetooth_service || true
+supervisorctl stop lamp_service || true
