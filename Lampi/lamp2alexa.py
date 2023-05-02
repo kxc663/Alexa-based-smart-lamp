@@ -49,25 +49,33 @@ def lamp_control(status, room):
     if status in STATUSON:
         print('on')
         update_onOff_state(True)
-        return statement('turning {} lights'.format(status))
+        return statement('Turning {} lights'.format(status))
     elif status in STATUSOFF:
         print('off')
         update_onOff_state(False)
-        return statement('turning {} lights'.format(status))
+        return statement('Turning {} lights'.format(status))
     else:
         return statement('Sorry not possible.')
 
 
-@ask.intent('brightness_control', mapping={'brightness_op': 'brightness_op'})
-def lamp_control(brightness_op, room):
+@ask.intent('brightness_control', mapping={'brightness_op': 'brightness_op', 'percentage': 'percentage'})
+def lamp_control(brightness_op, percentage, room):
+    if not percentage:
+        percentage = 20  # set default percentage to 20%
     if brightness_op in BRIGHTNESS_INC:
         print('increase brightness')
-        update_brightness(True)
-        return statement('{} brightness'.format(brightness_op))
+        response = update_brightness(True, percentage)
+        if response:
+            return statement('Sorry, brightness already at maximum level')
+        else:
+            return statement('{} brightness by {} percent'.format(brightness_op, percentage))
     elif brightness_op in BRIGHTNESS_DEC:
         print('decrease brightness')
-        update_brightness(False)
-        return statement('{} brightness'.format(brightness_op))
+        response = update_brightness(False, percentage)
+        if response:
+            return statement('Sorry, brightness already at minimum level')
+        else:
+            return statement('{} brightness by {} percent'.format(brightness_op, percentage))
     else:
         return statement('Sorry not possible.')
 
@@ -87,26 +95,36 @@ def update_onOff_state(isOn):
               qos=1, retain=True)
 
 
-def update_brightness(isIncrease):
+def update_brightness(isIncrease, percentage):
     new_config = get_current_state()
+    current_brightness = new_config['brightness']
+    isExceed = False
     if isIncrease:
-        new_brightness = new_config['brightness'] + 0.2
-        if new_brightness <= 1.0:
-            state = {'color': new_config['color'],
-                     'brightness': new_brightness, 'on': new_config['on'], 'client': 'alexa_voice'}
+        new_brightness = current_brightness + float(percentage)/100.0
+        if new_brightness > 1.0:
+            new_brightness = 1.0
+            isExceed = True
+        state = {'color': new_config['color'],
+                 'brightness': new_brightness, 'on': new_config['on'], 'client': 'alexa_voice'}
+        c.publish('lamp/set_config', json.dumps(state).encode('utf-8'),
+                  qos=1, retain=True)
+        if not isExceed:
+            return None
         else:
-            state = {'color': new_config['color'],
-                     'brightness': 1.0, 'on': new_config['on'], 'client': 'alexa_voice'}
+            return 'Brightness already at maximum level'
     else:
-        new_brightness = new_config['brightness'] - 0.2
-        if new_brightness >= 0.0:
-            state = {'color': new_config['color'],
-                     'brightness': new_brightness, 'on': new_config['on'], 'client': 'alexa_voice'}
+        new_brightness = current_brightness - float(percentage)/100.0
+        if new_brightness < 0.0:
+            new_brightness = 0.0
+            isExceed = True
+        state = {'color': new_config['color'],
+                 'brightness': new_brightness, 'on': new_config['on'], 'client': 'alexa_voice'}
+        c.publish('lamp/set_config', json.dumps(state).encode('utf-8'),
+                  qos=1, retain=True)
+        if not isExceed:
+            return None
         else:
-            state = {'color': new_config['color'],
-                     'brightness': 0.0, 'on': new_config['on'], 'client': 'alexa_voice'}
-    c.publish('lamp/set_config', json.dumps(state).encode('utf-8'),
-              qos=1, retain=True)
+            return 'Brightness already at minimum level'
 
 
 if __name__ == '__main__':

@@ -40,9 +40,14 @@
                         {
                             "name": "brightness_op",
                             "type": "BRIGHTNESS"
+                        },
+                        {
+                            "name": "percentage",
+                            "type": "AMAZON.NUMBER"
                         }
                     ],
                     "samples": [
+                        "{brightness_op} brightness by {percentage} percent",
                         "{brightness_op} brightness"
                     ]
                 },
