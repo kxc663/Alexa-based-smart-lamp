@@ -35,6 +35,20 @@
                     ]
                 },
                 {
+                    "name": "color_control",
+                    "slots": [
+                        {
+                            "name": "color",
+                            "type": "COLOR"
+                        }
+                    ],
+                    "samples": [
+                        "set color to {color}",
+                        "change color to {color}",
+                        "turn light {color}"
+                    ]
+                },
+                {
                     "name": "brightness_control",
                     "slots": [
                         {
@@ -129,6 +143,38 @@
                                     "State",
                                     "status",
                                     "Status"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "COLOR",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "red",
+                                "synonyms": [
+                                    "Red",
+                                    "scarlet"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "green",
+                                "synonyms": [
+                                    "Green",
+                                    "olive"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blue",
+                                "synonyms": [
+                                    "Blue",
+                                    "turquoise"
                                 ]
                             }
                         }

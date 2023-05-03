@@ -18,6 +18,7 @@ STATUSOFF = ['off', 'Off', 'low']
 BRIGHTNESS_INC = ['increase', 'INCREASE', 'Increase', 'more']
 BRIGHTNESS_DEC = ['decrease', 'DECREASE', 'Decrease', 'less']
 STATUS = ['State', 'state', 'Status', 'status']
+COLOR = ['red', 'green', 'blue']
 
 global c
 c = MQTT.Client()
@@ -56,6 +57,15 @@ def lamp_control(status, room):
         return statement('Turning {} lights'.format(status))
     else:
         return statement('Sorry not possible.')
+
+
+@ask.intent('color_control', mapping={'color': 'color'})
+def color_control(color, room):
+    if color in COLOR:
+        update_color(color)
+        return statement('Setting color to {}'.format(color))
+    else:
+        return statement('Invalid color')
 
 
 @ask.intent('brightness_control', mapping={'brightness_op': 'brightness_op', 'percentage': 'percentage'})
@@ -125,6 +135,29 @@ def update_brightness(isIncrease, percentage):
             return None
         else:
             return 'Brightness already at minimum level'
+
+
+def update_color(color):
+    new_config = get_current_state()
+    new_color = {'h': 0, 's': 0, 'v': 0}
+    if color == 'red':
+        new_color['h'] = 0
+        new_color['s'] = 1.0
+        new_color['v'] = 1.0
+    elif color == 'green':
+        new_color['h'] = 0.35
+        new_color['s'] = 1.0
+        new_color['v'] = 1.0
+    elif color == 'blue':
+        new_color['h'] = 0.7
+        new_color['s'] = 1.0
+        new_color['v'] = 1.0
+    else:
+        raise ValueError('Invalid color')
+    state = {'color': new_color,
+             'brightness': new_config['brightness'], 'on': new_config['on'], 'client': 'alexa_voice'}
+    c.publish('lamp/set_config', json.dumps(state).encode('utf-8'),
+              qos=1, retain=True)
 
 
 if __name__ == '__main__':
