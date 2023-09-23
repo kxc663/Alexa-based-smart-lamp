@@ -5,4 +5,4 @@
 2. `cd Lampi`
 3. `./ lamp2alexa.py`
 
-![](alexa based lampi.png)
+![](alexa%20based%20lampi.png)
